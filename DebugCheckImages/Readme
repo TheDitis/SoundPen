@@ -1,0 +1,5 @@
+In this folder, 2 pictures will be placed during file generation.
+
+ThresholdTest is to see if errors are being caused by the threshold settings used on the input image.
+
+ContourCheck shows the contour that the program ended up selecting as the final one.
