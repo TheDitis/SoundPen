@@ -18,6 +18,7 @@ def __main__(picfile, outfilename):
 def open_image(filename):  # Opens file, converts it to grayscale, and inverts it, then outputs it as an array
     img_ = cv2.imread(filename)
     img_ = format_image(img_)
+    img_ = cv2.medianBlur(img_, 7)
     ret, img_ = cv2.threshold(img_, 180, 255, cv2.THRESH_TOZERO)
     cv2.imwrite(os.path.join('DebugCheckImages', 'ThresholdTest.png'), img_)
     arrayimg = np.asarray(img_)
@@ -144,4 +145,4 @@ def create_wav_file(fname, vals):
         out.writeframesraw(data)
 
 
-__main__('PhonePhoto9.jpg', 'OutputWav')
+__main__('PhonePhoto17.jpg', 'OutputWav17')
