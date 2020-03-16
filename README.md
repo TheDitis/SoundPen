@@ -49,4 +49,9 @@ Along with understanding that any overhangs will cause jumps, it helps to know h
 
 - Once the wave has been centered using the front and end points, it automatically scales the amplitude to maximize volume, so you don't need to be concerned with how tall or short your drawing is. It can be very interesting to play with making as squished of a waveform you can, and seeing what it sounds like when the tiny bumps are amplified.
 
+
 ![Example Image](/doc_resources/WaveformDrawDemo.png)
+
+Example: 
+![audio clip](/doc_resources/Audiofile1.wav)
+
