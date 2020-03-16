@@ -53,5 +53,5 @@ Along with understanding that any overhangs will cause jumps, it helps to know h
 ![Example Image](/doc_resources/WaveformDrawDemo.png)
 
 Example: 
-![audio clip](/doc_resources/Audiofile1.wav)
+![audio clip](/doc_resources/Audiofile1.mp3)
 
