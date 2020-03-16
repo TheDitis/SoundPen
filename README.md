@@ -35,15 +35,16 @@ The way the algorithm currently works once it has identified the largest curve i
 
 ![Example Image](/doc_resources/TopDownDemo.png)
 
+<br/><br/>
 ## Other Things To Know
 Along with understanding that any overhangs will cause jumps, it helps to know how sharp jumps can be avoided in the looping in your synthesizer.
 
-The algorithm takes the average of the last couple of samples, and averages that with the average of the first couple of samples, and then shifts the waveform values so that the two ends straddle the centerline as closely as possible
+- The algorithm takes the average of the last couple of samples, and averages that with the average of the first couple of samples, and then shifts the waveform values vertically so that the two ends straddle the center line as closely as possible
 
-This means that, if both of your end-points are either low or high compared to the majority of the rest of the drawing, you will get a sort of lopsided waveform, which isn't necessarily a bad thing, just know that the volume won't be as loud.
+- This means that, if both of your end-points are either low or high compared to the majority of the rest of the drawing, you will get a sort of lopsided waveform, which isn't necessarily a bad thing, just know that the volume won't be as loud.
 
-It also means that if the endpoints of your audio file are on opposite ends vertically, than you will get more of a squarewave-like character when you play it through a synthesizer, unless your synthesizer has a crossfade parameter.
+- It also means that if the endpoints of your audio file are on opposite ends vertically, than you will get more of a squarewave-like character when you play it through a synthesizer, unless your synthesizer has a crossfade parameter.
 
-Even when you start and end your waveform nicely on the center line, there will likely still be small jumps on cycling, due to anything from the angle of the photo to the bleed of the marker, so it is recommended to use a synthesizer that does have crossfade parameter.
+- Even when you start and end your waveform nicely on the center line, there will likely still be small jumps on cycling, due to anything from the angle of the photo to the bleed of the marker, so it is recommended to use a synthesizer that does have crossfade parameter.
 
-Once the wave has been centered using the front and end points, it automatically scales the amplitude to maximize volume, so you don't need to be concerned with how tall or short your drawing is. It can be very interesting to play with making as squished of a waveform you can, and seeing what it sounds like when the tiny bumps are amplified.
+- Once the wave has been centered using the front and end points, it automatically scales the amplitude to maximize volume, so you don't need to be concerned with how tall or short your drawing is. It can be very interesting to play with making as squished of a waveform you can, and seeing what it sounds like when the tiny bumps are amplified.
