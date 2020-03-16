@@ -3,7 +3,7 @@ Input in image of a scribble, and it will output a single-cycle wav file for a s
 
 To use:
 1. Make a drawing of a waveform (should be like a function, with only 1 y value per x value, otherwise you will have jumps. Somethimes fun to play with, just important to know. Here's an example:
-![GitHub Logo](/Inputimages/PhonePhoto9.jpg)
+![Example Image](/Inputphotos/PhonePhoto9.jpg)
 
 2. Take a picture of that waveform in decent enough light and focus, and with as little background or competeing curves as possible.
 3. Put the image into the Inputphotos folder.
