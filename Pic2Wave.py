@@ -217,7 +217,7 @@ def tune_to_c(wav):
 
 
 if __name__ == "__main__":
-    input_filename = 'PhonePhoto4.jpg'  # input file must be placed into Inputphotos folder! Don't use relative path
+    input_filename = 'PhonePhoto5.jpg'  # input file must be placed into Inputphotos folder! Don't use relative path
     output_filename = 'output'  # don't include file extension. It will always be .wav. It will land in the OutputWavs folder
 
     main(input_filename, output_filename)
