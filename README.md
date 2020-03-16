@@ -1,5 +1,5 @@
 # Drawing2Waveform
-Input in image of a scribble, and it will output a single-cycle wav file for a synthesizer.
+Input an image of a scribble, and get back a single-cycle wav file for a synthesizer.
 
 ## To use:
 1. Make a drawing of a waveform (should be like a function, with only 1 y value per x value, otherwise you will have jumps. Somethimes fun to play with, just important to know.) 
