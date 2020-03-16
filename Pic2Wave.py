@@ -207,28 +207,17 @@ def tune_to_c(wav):
         print('No tuning needed.')
         newwav = wav
     elif n < 0:
-        newwav = []
         print('Tuning up')
-        for i in range(samples):
-            if i % interval == 0:
-                newwav.append(wav[i])
-        # newwav = [wav[i] for i in range(samples) if i % interval != 0]
+        newwav = [wav[i] for i in range(samples) if i % interval == 0]
     elif n > 0:
-        newwav = []
         print('Tuning down')
-        for i in range(samples):
-            if i % interval != 0:
-                newwav.append(wav[i])
-            # newwav.append(wav[i])
-            # if i % interval == 0:
-            #     newwav.append(wav[i])
-
+        newwav = [wav[i] for i in range(samples) if i % interval != 0]
     print('out samples: ', len(newwav))
     return newwav
 
 
 if __name__ == "__main__":
-    main('PhonePhoto4.jpg', 'output')
+    input_filename = 'PhonePhoto4.jpg'  # input file must be placed into Inputphotos folder! Don't use relative path
+    output_filename = 'output'  # don't include file extension. It will always be .wav. It will land in the OutputWavs folder
 
-# __main__('PhonePhoto4.jpg', 'Suzantest4')
-
+    main(input_filename, output_filename)
