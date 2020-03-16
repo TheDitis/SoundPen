@@ -13,7 +13,7 @@ Input an image of a scribble, and get back a single-cycle wav file for a synthes
 5. Replace *input_filename* with the name of the image you put into the Inputphotos folder, including the extension.
 6. Replace *ouput_filename* with your desired output name, **without extension**, as it will always be .wav.
 7. Run the script
-8. Find the output file in the OutputWavs folder, and plug it into your favorite synthesizer.
+8. Find the output file in the OutputWavs folder, and plug it into your favorite synthesizer. Note that you'll want to use your synthesizers tuning adjustments, as automatic tuning isn't currently implemented.
 9. Jam with your newly drawn sound!
 
 ### Note: You won't hear anything when playing this in a media player, as this generates only a single cycle waveform, and is therefore very, very short.
