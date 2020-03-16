@@ -5,7 +5,7 @@ import struct
 import os
 
 
-def __main__(picfile, outfilename):
+def main(picfile, outfilename):
     picfile = os.path.join('Inputphotos', picfile)
     img = open_image(picfile)
     img = threshold_image(img)
@@ -13,6 +13,27 @@ def __main__(picfile, outfilename):
     img = cv2.bitwise_not(img)
     wav = make_wave(img)
     create_wav_file(outfilename, wav)
+
+
+def batch_process(piclst, outnamelist):
+    if isinstance(outnamelist, str) or len(outnamelist) == 1:
+        if isinstance(outnamelist, list):
+            outname = outnamelist[0]
+        else:
+            outname = outnamelist
+        namelen = len(outname)
+        for i in range(len(piclst)):
+            if i == 0:
+                outname = outname + str(i + 1)
+            else:
+                outname = outname[:namelen] + str(i + 1)
+            main(piclst[i], outname)
+    if isinstance(outnamelist, list) and len(outnamelist) > 1:
+        if len(piclst) != len(outnamelist):
+            print("lists must be equal length")
+            raise ValueError
+        for i in range(len(piclst)):
+            main(piclst[i], outnamelist[i])
 
 
 def open_image(filename):  # Opens file, converts it to grayscale, and inverts it, then outputs it as an array
@@ -39,7 +60,7 @@ def threshold_image(image):  # First blurs the image, then thresholds it
 
 def find_contours(image):
     contours, hierarchy = cv2.findContours(image, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
-    print(len(contours), ' contours found')
+    print('\n', len(contours), ' contours found')
     if len(contours) > 100:
         print('Contour count is high, a cleaner picture might be needed.')
     bestcurveindex = find_longest_contour(contours)
@@ -139,10 +160,75 @@ def create_wav_file(fname, vals):
     out.setnchannels(1)
     out.setsampwidth(2)
     out.setframerate(44100)
-
+    while (44100 / len(vals)) < 32:
+        vals = doublefreq(vals)
+    # vals = tune_to_c(vals)
     for value in vals:
         data = struct.pack('<h', int(value))
         out.writeframesraw(data)
 
 
-__main__('PhonePhoto17.jpg', 'OutputWav17')
+def doublefreq(wav):
+    outwav = [wav[i] for i in range(len(wav)) if i % 2 == 0]
+    return outwav
+
+
+def halffreq(wav):
+    outwav = []
+    for i in wav:
+        outwav.append(i)
+        outwav.append(i)
+    return outwav
+
+
+def find_nearest_c(wav):
+    samples = len(wav)
+    freq = 44100 / samples
+    lowc = 16.35
+    cfreqs = [round(lowc * (2 ** i), 2) for i in range(9)]
+    nearc = min(cfreqs, key=lambda x: abs(x - freq))
+    newlen = round(44100 / nearc)
+    print('start freq: ', freq)
+    print('c freq list: ', cfreqs)
+    print('nearest c freq: ', nearc)
+    print('input samples: ', len(wav))
+    print('desired samples: ', newlen)
+    diff = newlen - samples
+    print('difference: ', diff)
+    return diff
+
+
+def tune_to_c(wav):
+    samples = len(wav)
+    n = find_nearest_c(wav)
+    interval = round(abs(samples / n))
+    print('interval: ', interval)
+    if n == 0:
+        print('No tuning needed.')
+        newwav = wav
+    elif n < 0:
+        newwav = []
+        print('Tuning up')
+        for i in range(samples):
+            if i % interval == 0:
+                newwav.append(wav[i])
+        # newwav = [wav[i] for i in range(samples) if i % interval != 0]
+    elif n > 0:
+        newwav = []
+        print('Tuning down')
+        for i in range(samples):
+            if i % interval != 0:
+                newwav.append(wav[i])
+            # newwav.append(wav[i])
+            # if i % interval == 0:
+            #     newwav.append(wav[i])
+
+    print('out samples: ', len(newwav))
+    return newwav
+
+
+if __name__ == "__main__":
+    main('PhonePhoto4.jpg', 'output')
+
+# __main__('PhonePhoto4.jpg', 'Suzantest4')
+
