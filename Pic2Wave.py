@@ -41,7 +41,7 @@ def open_image(filename):  # Opens file, converts it to grayscale, and inverts i
     img_ = format_image(img_)
     img_ = cv2.medianBlur(img_, 7)
     ret, img_ = cv2.threshold(img_, 180, 255, cv2.THRESH_TOZERO)
-    cv2.imwrite(os.path.join('DebugCheckImages', 'ThresholdTest.png'), img_)
+    cv2.imwrite(os.path.join('DebugImages', 'ThresholdTest.png'), img_)
     arrayimg = np.asarray(img_)
     return arrayimg
 
@@ -75,7 +75,7 @@ def find_contours(image):
             cv2.drawContours(blank, contours, bestcurveindex, (255, 255, 255), 2)
             slope = get_avg_slope(blank, contours, bestcurveindex, drawline=False)
     cimg = blank
-    cv2.imwrite(os.path.join('DebugCheckImages', 'ContourCheck.png'), cimg)
+    cv2.imwrite(os.path.join('DebugImages', 'ContourCheck.png'), cimg)
     cimg = format_image(cimg)
     return cimg
 
