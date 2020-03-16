@@ -48,3 +48,5 @@ Along with understanding that any overhangs will cause jumps, it helps to know h
 - Even when you start and end your waveform nicely on the center line, there will likely still be small jumps on cycling, due to anything from the angle of the photo to the bleed of the marker, so it is recommended to use a synthesizer that does have crossfade parameter.
 
 - Once the wave has been centered using the front and end points, it automatically scales the amplitude to maximize volume, so you don't need to be concerned with how tall or short your drawing is. It can be very interesting to play with making as squished of a waveform you can, and seeing what it sounds like when the tiny bumps are amplified.
+
+![Example Image](/doc_resources/WaveformDrawDemo.png)
