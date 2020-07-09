@@ -31,7 +31,7 @@ Don't worry if your threshold looks a bit more messy, as long as *ContourCheck.p
 
 <br/><br/>
 ## Top-Down Model
-The way the algorithm currently works once it has identified the largest curve in the image, is to take the uppermost pixel that is part of the curve for every column of pixels. This, of course, means that any sort of concave or non-function-like curves will result in square-wave like jumps. Here is an example of what that looks like:
+Once the algorithm has identified the largest curve in the image, is to take the uppermost pixel that is part of the curve for every column of pixels. This, of course, means that any sort of concave or non-function-like curves will result in square-wave like jumps. Here is an example of what that looks like:
 
 ![Example Image](/doc_resources/TopDownDemo.png)
 
