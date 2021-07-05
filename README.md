@@ -1,4 +1,4 @@
-# Drawing2Waveform
+# SoundPen
 Input an image of a scribble, and get back a single-cycle wav file for a synthesizer.
 
 <br/><br/>
