@@ -3,8 +3,8 @@ Input an image of a scribble, and get back a single-cycle wav file for a synthes
 
 <br/><br/>
 ## To use:
-1. Make a drawing of a waveform (should be like a function, with only 1 y value per x value, otherwise you will have jumps. Somethimes fun to play with, just important to know. See image at bottome for clarification.) 
-2. Take a picture of that waveform in decent enough light and focus, and with as little background or competeing curvature as possible Here's an example:
+1. Make a drawing of a waveform (should be like a function, with only 1 y value per x value, otherwise you will have jumps in the waveform. That's somethimes fun to play with, but it's important to know. See image at bottom for clarification.) 
+2. Take a picture of that waveform in decent light and focus, and with as little background or competeing curvature as possible. Here's an example:
 
 ![Example Image](/Inputphotos/PhonePhoto5.jpg)
 
@@ -31,7 +31,7 @@ Don't worry if your threshold looks a bit more messy, as long as *ContourCheck.p
 
 <br/><br/>
 ## Top-Down Model
-Once the algorithm has identified the largest curve in the image, is to take the uppermost pixel that is part of the curve for every column of pixels. This, of course, means that any sort of concave or non-function-like curves will result in square-wave like jumps. Here is an example of what that looks like:
+Once the algorithm has identified the largest curve in the image, it takes the first (top-to-bottom) white pixel from each column, and that pixel's row number indicates the voltage value in the waveform at that point. This, of course, means that any sort of concave or non-function-like curves will result in square-wave like jumps. Here is an example of what that looks like:
 
 ![Example Image](/doc_resources/TopDownDemo.png)
 
