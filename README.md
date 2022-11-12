@@ -1,6 +1,8 @@
 # SoundPen
 Input an image of a scribble, and get back a single-cycle wav file for a synthesizer.
 
+Web interface is in development
+
 <br/><br/>
 ## To use:
 1. Make a drawing of a waveform (should be like a function, with only 1 y value per x value, otherwise you will have jumps in the waveform. That's somethimes fun to play with, but it's important to know. See image at bottom for clarification.) 
