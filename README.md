@@ -1,7 +1,7 @@
 # SoundPen
 Input an image of a scribble, and get back a single-cycle wav file for a synthesizer.
 
-Web interface is in development
+Web interface is in development. It currently lives [here](https://github.com/TheDitis/Waveform-Draw-Web), but will take this repo's place once launched.
 
 <br/><br/>
 ## To use:
